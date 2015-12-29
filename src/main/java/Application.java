@@ -1,3 +1,4 @@
+import configuration.WebPageConfiguration;
 import controller.PageController;
 import model.Beer;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +12,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  */
 
 @EnableAutoConfiguration
-@ComponentScan(basePackageClasses = {Beer.class, PageController.class})
+@ComponentScan(basePackageClasses = {Beer.class, PageController.class, WebPageConfiguration.class})
 @EnableJpaRepositories(basePackages = "repo")
 @EntityScan
 public class Application {

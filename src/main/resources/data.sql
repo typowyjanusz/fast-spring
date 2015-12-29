@@ -1,0 +1,1 @@
+Insert into beer(id, name, abv) values(4,'Task 1',100);

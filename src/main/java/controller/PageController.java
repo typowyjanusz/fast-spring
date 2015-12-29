@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import repo.TableRepository;
 
 
@@ -35,10 +36,20 @@ public class PageController {
         return response.toString();
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/hello")
     @ResponseBody
     public String hello(){
         return "hello";
+    }
+
+    @RequestMapping("/")
+    public ModelAndView index(){
+        ModelAndView modelAndView = new ModelAndView("index");
+
+        modelAndView.addObject("greetings","hello world from variable");
+        modelAndView.addObject("greetingsArray",new String[] {"hello","world"});
+
+        return modelAndView;
     }
 
 
