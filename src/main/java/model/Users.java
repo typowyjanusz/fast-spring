@@ -1,3 +1,4 @@
+
 package model;
 
 import javax.persistence.Column;
@@ -11,8 +12,10 @@ import javax.validation.constraints.Size;
  * Created by Janusz on 2016-01-03.
  */
 
-@Entity
+
 public class Users {
+
+    /*
 
     @GeneratedValue
     @Id
@@ -71,7 +74,7 @@ public class Users {
         return "Person: " + id + " " + name + " " + password;
 
     }
-
+*/
 }
 
 

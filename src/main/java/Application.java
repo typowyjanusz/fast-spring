@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
  */
 
 @EnableAutoConfiguration
-@ComponentScan(basePackageClasses = {Beer.class, Task.class, Users.class, PageController.class, WebPageConfiguration.class})
+@ComponentScan(basePackageClasses = {Beer.class, Task.class, PageController.class, WebPageConfiguration.class})
 @EnableJpaRepositories(basePackages = "repo")
 @EntityScan
 @SpringBootApplication
