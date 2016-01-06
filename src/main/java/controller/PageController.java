@@ -20,6 +20,10 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import repo.GunwoRepository;
 import repo.TableRepository;
 
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.validation.Valid;
 
 
@@ -29,10 +33,9 @@ import javax.validation.Valid;
 
 
 @Controller
-public class PageController {
+public class PageController extends WebMvcConfigurerAdapter{
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);
-
 
 
     @Autowired
@@ -63,22 +66,19 @@ public class PageController {
         return "hello";
     }
 
-    @RequestMapping("/")
+    @RequestMapping(value = "/")
     public ModelAndView index(){
         ModelAndView modelAndView = new ModelAndView("index");
 
         modelAndView.addObject("greetings",dbShowMethod());
+        modelAndView.addObject("content2",testMethod2());
 
         return modelAndView;
     }
 
-    @RequestMapping(value = "/single", method = RequestMethod.GET)
-    public String showSingle(Beer beer){
-        return showSingle(tableRepository.findOne((long) 6));
-    }
 
 
-    @RequestMapping("/db3")
+    @RequestMapping(value = "/db3")
     @ResponseBody
     public String testMethod2() {
         StringBuilder response = new StringBuilder();

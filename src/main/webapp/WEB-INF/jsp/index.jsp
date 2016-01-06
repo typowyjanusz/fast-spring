@@ -2,6 +2,9 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<% request.setCharacterEncoding("UTF-8");
+    response.setCharacterEncoding("UTF-8");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +18,35 @@
 
 <a href="/logged">zaloguj ż ź ć ó ś ć</a>
 
-<h3> [[greetings]] </h3>
+<% request.setCharacterEncoding("UTF-8");
+    response.setCharacterEncoding("UTF-8");
+%>
+
+<h3> ${greetings} </h3>
+<form acceptcharset="UTF-8">
+    <h3> ${content2} </h3>
+</form>
+
+
+
+<table border="1" align="center" style="width:50%">
+    <thead>
+    <tr>
+        <th>User Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:forEach var="greetings" items="${beer}" >
+        <tr>
+            <td>${beer.id}</td>
+            <td>${beer.name}</td>
+            <td>${beer.abv}</td>
+        </tr>
+    </c:forEach>
+    </tbody>
+</table>
 
 
 <div id="header">

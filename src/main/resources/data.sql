@@ -22,19 +22,17 @@ CREATE TABLE user_roles (
   CONSTRAINT fk_username FOREIGN KEY (username) REFERENCES users (username));
 
 INSERT INTO users(username,password,enabled)
-VALUES ('priya','priya', true);
+VALUES ('andrzej','duda', true);
 INSERT INTO users(username,password,enabled)
-VALUES ('naveen','naveen', true);
+VALUES ('noob','noob', true);
 INSERT INTO users(username,password,enabled)
 VALUES ('admin','admin', true);
 
-INSERT INTO user_roles (username, role)
-VALUES ('priya', 'ROLE_USER');
 INSERT INTO user_roles (username, role)
 VALUES ('admin', 'ROLE_ADMIN');
 INSERT INTO user_roles (username, role)
 VALUES ('admin', 'ROLE_USER');
 INSERT INTO user_roles (username, role)
-VALUES ('priya', 'ROLE_ADMIN');
+VALUES ('andrzej', 'ROLE_USER');
 INSERT INTO user_roles (username, role)
-VALUES ('naveen', 'ROLE_USER');
+VALUES ('noob', 'ROLE_USER');
