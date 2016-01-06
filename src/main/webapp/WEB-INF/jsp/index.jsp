@@ -2,9 +2,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<% request.setCharacterEncoding("UTF-8");
-    response.setCharacterEncoding("UTF-8");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,11 +20,8 @@
 %>
 
 <h3> ${greetings} </h3>
-<form acceptcharset="UTF-8">
-    <h3> ${content2} </h3>
-</form>
 
-
+<h3> ${content2} </h3>
 
 <table border="1" align="center" style="width:50%">
     <thead>
