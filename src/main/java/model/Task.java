@@ -93,12 +93,10 @@ public class Task {
 
         @Override
         public String toString() {
-            return "<br>TaskEntity " +
-                    "<h3>id=</h3>" + id +
-                    "<br>Name=" + name + '\'' +
-                    "<br>" + description + '\'' +
-                    "<br>budget=" + budget +
-                    "<br>done=" + done;
+            return
+                    "id = " + id +
+                    " Name = " + name + '\'' +
+                    description;
         }
     }
 

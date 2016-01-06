@@ -32,7 +32,7 @@
     </tr>
     </thead>
     <tbody>
-    <c:forEach var="greetings" items="${beer}" >
+    <c:forEach var="greetings" items="${greetings}" >
         <tr>
             <td>${beer.id}</td>
             <td>${beer.name}</td>

@@ -93,9 +93,9 @@ public class PageController extends WebMvcConfigurerAdapter{
             response.append(i).append("<br>");
         }
 */
-        response.append("<br>Tasks with ID 2:<br>");
+        response.append("Treść");
         for(Task i: gunwoRepository.findByIdn(2)) {
-            response.append(i).append("<br>");
+            response.append(i).append("");
         }
 
         return response.toString();
