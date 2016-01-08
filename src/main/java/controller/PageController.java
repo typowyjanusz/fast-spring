@@ -1,22 +1,19 @@
 package controller;
 
 import javafx.application.Application;
-import model.Beer;
+import model.*;
 
-import model.Task;
-import model.Users;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import repo.ContentRepository;
 import repo.GunwoRepository;
 import repo.TableRepository;
 
@@ -37,12 +34,28 @@ public class PageController extends WebMvcConfigurerAdapter{
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);
 
-
     @Autowired
     public TableRepository tableRepository;
     @Autowired
     public GunwoRepository gunwoRepository;
+    @Autowired
+    public ContentRepository contentRepository;
 
+    @RequestMapping(value = "/registration", method = RequestMethod.GET)
+    public String registerForm(Model model) {
+        User user = new User();
+        user.setUname("uname");
+        user.setUpass("upass");
+        user.setUrepass("urepass");
+        model.addAttribute("user", new User());
+        return "user";
+    }
+
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public String registerSubmit(@ModelAttribute("user") User user) {
+        System.out.print(user.getUname() + " " + user.getUpass());
+        return null;
+    }
 
     @RequestMapping("/db")
     @ResponseBody
@@ -76,10 +89,6 @@ public class PageController extends WebMvcConfigurerAdapter{
         return modelAndView;
     }
 
-
-
-    @RequestMapping(value = "/db3")
-    @ResponseBody
     public String testMethod2() {
         StringBuilder response = new StringBuilder();
 /*
@@ -93,7 +102,7 @@ public class PageController extends WebMvcConfigurerAdapter{
             response.append(i).append("<br>");
         }
 */
-        response.append("Treść");
+        response.append("Treść ");
         for(Task i: gunwoRepository.findByIdn(2)) {
             response.append(i).append("");
         }
@@ -117,26 +126,5 @@ public class PageController extends WebMvcConfigurerAdapter{
         modelAndView.addObject("info","Tresc dla zalogowanego");
         return modelAndView;
     }
-/*
-    @RequestMapping(value = "/form", method = RequestMethod.GET)
-    public String showForm(Users users){
-        return "form";
-    }
 
-    @RequestMapping(value = "/form", method = RequestMethod.POST)
-    public String checkPersonInfo(@Valid Users users,BindingResult bindingResult){
-
-        if (bindingResult.hasErrors()){
-            return "form";
-        }
-
-        return "redirect:/results";
-    }
-
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public TableRepository getTableRepository(@PathVariable("id") Long id){
-        return (TableRepository) tableRepository.findOne(id);
-    }
-
-*/
 }

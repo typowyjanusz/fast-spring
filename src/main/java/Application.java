@@ -1,9 +1,6 @@
 import configuration.WebPageConfiguration;
 import controller.PageController;
-import model.Beer;
-import model.Customer;
-import model.Task;
-import model.Users;
+import model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +23,7 @@ import java.util.stream.Collectors;
  */
 
 @EnableAutoConfiguration
-@ComponentScan(basePackageClasses = {Beer.class, Task.class, PageController.class, WebPageConfiguration.class})
+@ComponentScan(basePackageClasses = {Content.class, Beer.class, Task.class, PageController.class, WebPageConfiguration.class})
 @EnableJpaRepositories(basePackages = "repo")
 @EntityScan
 @SpringBootApplication
