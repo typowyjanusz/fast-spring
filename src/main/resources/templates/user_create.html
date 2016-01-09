@@ -18,11 +18,26 @@
     <title>index</title>
 </head>
 <body>
-<h3>cześć </h3>
-<span th:text="${#httpServletRequest.remoteUser}"></span>
-<form action="/logout" method="post">
-    <input type="submit" value="logout" />
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+
+<form method="POST" action="/user_create.html" modelAttribute="form" th:attr="action=@{/user_create.html}">
+
+    <div class="div">
+        <label th:path="id" th:for="id">ID</label>
+        <input th:path="id" th:id="id" th:name="id" />
+        
+
+    </div>
+    <div>
+        <label th:path="password1" th:for="password1">PASS</label>
+        <input th:path="password1" th:id="password1" th:name="password1" />
+    </div>
+    <div>
+        <label th:path="password1" th:for="password1">REPEAT</label>
+        <input th:path="password2" th:id="password2" th:name="password2" />
+    </div>
+    <div>
+        <input type="submit" />
+    </div>
 </form>
 
 <script src="js/jquery.min.js" th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>

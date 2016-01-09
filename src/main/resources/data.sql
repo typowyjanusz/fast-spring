@@ -8,35 +8,7 @@ insert into content(object,subject) values('Litwo! Ojczyzno moja! ty jesteś jak
 insert into content(object,subject) values('Nie bój się kurwo, Ta noc już się rodzi, Nie bój się wódy, Ta nigdy nie zwodzi, Naparstek w naparstek, Kielichy jak dzwony','Odraza Wielki Mizogin');
 insert into content(object,subject) values('Za sny o pustce, Wysoka cena płacona, Bywa niczym, Kiedy zapłata, Nic nie warta.','Furia');
 
-drop table if exists user_roles;
-drop table if exists users;
-CREATE  TABLE users (
-  username VARCHAR(45) NOT NULL ,
-  password VARCHAR(45) NOT NULL ,
-  enabled TINYINT NOT NULL DEFAULT 1 ,
-  PRIMARY KEY (username));
-
-CREATE TABLE user_roles (
-  user_role_id int(11) NOT NULL AUTO_INCREMENT,
-  username varchar(45) NOT NULL,
-  role varchar(45) NOT NULL,
-  PRIMARY KEY (user_role_id),
-  UNIQUE KEY uni_username_role (role,username),
-  KEY fk_username_idx (username),
-  CONSTRAINT fk_username FOREIGN KEY (username) REFERENCES users (username));
-
-INSERT INTO users(username,password,enabled)
-VALUES ('andrzej','duda', true);
-INSERT INTO users(username,password,enabled)
-VALUES ('noob','noob', true);
-INSERT INTO users(username,password,enabled)
-VALUES ('admin','admin', true);
-
-INSERT INTO user_roles (username, role)
-VALUES ('admin', 'ROLE_ADMIN');
-INSERT INTO user_roles (username, role)
-VALUES ('admin', 'ROLE_USER');
-INSERT INTO user_roles (username, role)
-VALUES ('andrzej', 'ROLE_USER');
-INSERT INTO user_roles (username, role)
-VALUES ('noob', 'ROLE_USER');
+INSERT INTO user (id, password) VALUES ('user1', 'pass1');
+INSERT INTO user (id, password) VALUES ('user2', 'pass1');
+INSERT INTO user (id, password) VALUES ('user3', 'pass1');
+INSERT INTO user (id, password) VALUES ('user4', 'pass1');

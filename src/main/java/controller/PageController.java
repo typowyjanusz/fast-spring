@@ -41,21 +41,6 @@ public class PageController extends WebMvcConfigurerAdapter{
     @Autowired
     public ContentRepository contentRepository;
 
-    @RequestMapping(value = "/registration", method = RequestMethod.GET)
-    public String registerForm(Model model) {
-        User user = new User();
-        user.setUname("uname");
-        user.setUpass("upass");
-        user.setUrepass("urepass");
-        model.addAttribute("user", new User());
-        return "user";
-    }
-
-    @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public String registerSubmit(@ModelAttribute("user") User user) {
-        System.out.print(user.getUname() + " " + user.getUpass());
-        return null;
-    }
 
     @RequestMapping("/db")
     @ResponseBody
