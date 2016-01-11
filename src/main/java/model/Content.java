@@ -1,75 +1,47 @@
 package model;
 
-import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.core.style.ToStringCreator;
-
 import javax.persistence.*;
-import javax.validation.constraints.Digits;
-import java.util.Date;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import com.google.common.base.Objects;
 
 /**
- * Created by Janusz on 2016-01-07.
+ * Created by Janusz on 2016-01-08.
  */
-
-@Entity
-@Table(name = "content")
+@Entity(name = "content")
 public class Content {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idc;
+    @Column(name = "id", nullable = false, updatable = false)
+    @GeneratedValue
+    private Integer id;
 
-    public Integer getIdc() {
-        return this.idc;
+    @NotNull
+    @Size(max = 64)
+    @Column(name = "contents", nullable = false)
+    private String contents;
+
+    private Content() {
     }
 
-    public void setIdc(Integer idc) {
-        this.idc = idc;
+    public Content(final Integer id, final String contents) {
+        this.id = id;
+        this.contents = contents;
     }
 
-    @Column(name = "object")
-    @NotEmpty
-    private String object;
-
-    @Column(name = "subject")
-    @NotEmpty
-    private String subject;
-
-
-    public String getObject() {
-        return this.object;
+    public Integer getId() {
+        return id;
     }
 
-    public void setObject(String object) {
-        this.object = object;
+    public String getContents() {
+        return contents;
     }
-
-    public String getSubject() {
-        return this.subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public Content withObject(final String object) {
-        this.object = object;
-        return this;
-    }
-
-    public Content withSubject(final String subject) {
-        this.subject = subject;
-        return this;
-    }
-
-    public Content withIdc(final Integer idc) {
-        this.idc = idc;
-        return this;
-    }
-
 
     @Override
     public String toString() {
-        return idc + object + subject;
+        return Objects.toStringHelper(this)
+                .add("id", id)
+                .add("contents", contents)
+                .toString();
     }
 }

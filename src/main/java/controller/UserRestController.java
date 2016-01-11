@@ -3,7 +3,7 @@ package controller;
 /**
  * Created by Janusz on 2016-01-08.
  */
-import model.Users;
+import model.Content;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -17,7 +17,7 @@ import java.util.List;
 
 @RestController
 public class UserRestController {
-/*
+
     private static final Logger LOGGER = LoggerFactory.getLogger(UserRestController.class);
     private final UserService userService;
 
@@ -27,13 +27,13 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public Users createUser(@RequestBody @Valid final Users users) {
-        LOGGER.debug("Received request to create the {}", users);
-        return userService.save(users);
+    public Content createUser(@RequestBody @Valid final Content content) {
+        LOGGER.debug("Received request to create the {}", content);
+        return userService.save(content);
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public List<Users> listUsers() {
+    public List<Content> listUsers() {
         LOGGER.debug("Received request to list all users");
         return userService.getList();
     }
@@ -43,5 +43,5 @@ public class UserRestController {
     public String handleUserAlreadyExistsException(UserAlreadyExistsException e) {
         return e.getMessage();
     }
-*/
+
 }

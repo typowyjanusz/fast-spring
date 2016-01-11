@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="pl">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, users-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, content-scalable=no"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
@@ -20,7 +20,7 @@
 <body>
 <th:if test="${param.error ne null}">
     <div>
-        Invalid username and password.
+        Invalid username and contents.
     </div>
 </th:if>
 <th:if test="${param.logout ne null}">
@@ -30,7 +30,7 @@
 </th:if>
 <form action="/login" method="post">
     <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><label> Password: <input type="contents" name="contents"/> </label></div>
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
     <div><input type="submit" value="Sign In"/></div>
 </form>

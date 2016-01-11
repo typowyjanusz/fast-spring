@@ -13,7 +13,6 @@ import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.boot.orm.jpa.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import service.MyUserDetailsService;
 import service.UserService;
 import validator.UserCreateFormPasswordValidator;
 
@@ -23,9 +22,9 @@ import validator.UserCreateFormPasswordValidator;
  */
 
 @EnableAutoConfiguration
-@ComponentScan(basePackageClasses = {UserRole.class, Users.class, UserCreateForm.class, Content.class, Beer.class, Task.class,
+@ComponentScan(basePackageClasses = {Content.class, UserCreateForm.class, Beer.class, Task.class,
         PageController.class, WebPageConfiguration.class, UserCreateController.class, UserListController.class,
-        UserRestController.class, UserService.class, UserCreateFormPasswordValidator.class, MyUserDetailsService.class})
+        UserRestController.class, UserService.class, UserCreateFormPasswordValidator.class})
 @EnableJpaRepositories(basePackages = "repo")
 @EntityScan
 @SpringBootApplication

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="pl">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, users-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, content-scalable=no"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
@@ -80,7 +80,7 @@
                 <h3 class="text-center text-yellow">
                     MY WORK EXPERIENCE
                 </h3>
-                <div class="panel-group timeline" username="experience">
+                <div class="panel-group timeline" id="experience" th:each="content : ${contents}">
                     <div class="timeline-item">
                         <div class="timeline-year">
                             <span class="timeline-year">2014 - Now</span>
@@ -93,117 +93,16 @@
                         <div class="panel">
                             <div class="panel-heading">
                                 <div class="panel-title">
-                                    <h4>Endeca Developer - Comp Name - Location</h4>
+                                    <h4 th:text="${content.getId()}">Endeca Developer - Comp Name - Location</h4>
                                 </div>
                                 <!-- //.panel-title -->
                             </div>
                             <!-- //.panel-heading -->
-                            <div username="exp1" class="panel-collapse collapse in">
+                            <div id="exp1" class="panel-collapse collapse in">
                                 <div class="panel-body">
-                                    <p>
+                                    <p th:text="${content.getContents()}">
                                         Responsibilities:
-
-
-                                        Your roles and responsibilities goes here                                              </p>
-                                </div>
-                                <!-- //.panel-body -->
-                            </div>
-                            <!-- //.panel-collapse -->
-                        </div>
-                        <!-- //.panel -->
-                    </div>
-                    <!-- //.timeline-item -->
-                    <div class="timeline-item animated bounceInUp">
-                        <div class="timeline-year">
-                            <span class="timeline-year">2013 - 2014</span>
-                        </div>
-                        <!-- //.timeline-year -->
-                        <div class="timeline-btn">
-                            <a href="#exp2" class="collapsed" data-toggle="collapse" data-parent="#experience"></a>
-                        </div>
-                        <!-- //.timeline-btn -->
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <div class="panel-title">
-                                    <h4>Associate - Comp Name</h4>
-                                </div>
-                                <!-- //.panel-title -->
-                            </div>
-                            <!-- //.panel-heading -->
-                            <div username="exp2" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p>
-                                        Technologies Worked On:
-
-
-                                        Your roles and responsibilities goes here
-                                    </p>
-                                </div>
-                                <!-- //.panel-body -->
-                            </div>
-                            <!-- //.panel-collapse -->
-                        </div>
-                        <!-- //.panel -->
-                    </div>
-                    <!-- //.timeline-item -->
-                    <div class="timeline-item animated bounceInUp">
-                        <div class="timeline-year">
-                            <span class="timeline-year">2011 - 2013</span>
-                        </div>
-                        <!-- //.timeline-year -->
-                        <div class="timeline-btn">
-                            <a href="#exp3" class="collapsed" data-toggle="collapse" data-parent="#experience"></a>
-                        </div>
-                        <!-- //.timeline-btn -->
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <div class="panel-title">
-                                    <h4>Programmer Analyst - Comp Name</h4>
-                                </div>
-                                <!-- //.panel-title -->
-                            </div>
-                            <!-- //.panel-heading -->
-                            <div username="exp3" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p>
-                                        Technologies Worked On:
-
-
-                                        Your roles and responsibilities goes here
-                                    </p>
-                                </div>
-                                <!-- //.panel-body -->
-                            </div>
-                            <!-- //.panel-collapse -->
-                        </div>
-                        <!-- //.panel -->
-                    </div>
-                    <!-- //.timeline-item -->
-                    <div class="timeline-item animated bounceInUp">
-                        <div class="timeline-year">
-                            <span class="timeline-year">2010 - 2011</span>
-                        </div>
-                        <!-- //.timeline-year -->
-                        <div class="timeline-btn">
-                            <a href="#exp4" class="collapsed" data-toggle="collapse" data-parent="#experience"></a>
-                        </div>
-                        <!-- //.timeline-btn -->
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <div class="panel-title">
-                                    <h4>Programmer Analyst Trainee - Comp Name</h4>
-                                </div>
-                                <!-- //.panel-title -->
-                            </div>
-                            <!-- //.panel-heading -->
-                            <div username="exp4" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p>
-                                        Responsibilities:
-
-
-                                        Your roles and responsibilities goes here
-                                    </p>
+                                        Your roles and responsibilities goes here  </p>
                                 </div>
                                 <!-- //.panel-body -->
                             </div>

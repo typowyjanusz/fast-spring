@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import repo.ContentRepository;
 import repo.GunwoRepository;
 import repo.TableRepository;
 
@@ -38,8 +37,7 @@ public class PageController extends WebMvcConfigurerAdapter{
     public TableRepository tableRepository;
     @Autowired
     public GunwoRepository gunwoRepository;
-    @Autowired
-    public ContentRepository contentRepository;
+
 
 
     @RequestMapping("/db")

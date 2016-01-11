@@ -13,7 +13,7 @@ import javax.inject.Inject;
 
 @Controller
 public class UserListController {
-/*
+
     private final UserService userService;
 
     @Inject
@@ -21,11 +21,11 @@ public class UserListController {
         this.userService = userService;
     }
 
-    @RequestMapping("/user_list.html")
+    @RequestMapping("/index")
     public ModelAndView getListUsersView(){
         ModelMap model = new ModelMap();
-        model.addAttribute("users",userService.getList());
-        return new ModelAndView("user_list",model);
+        model.addAttribute("contents",userService.getList());
+        return new ModelAndView("index",model);
     }
-*/
+
 }
