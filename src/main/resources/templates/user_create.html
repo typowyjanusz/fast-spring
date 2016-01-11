@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="pl">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, users-scalable=no"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
@@ -19,21 +19,22 @@
 </head>
 <body>
 
-<form method="POST" action="/user_create.html" modelAttribute="form" th:attr="action=@{/user_create.html}">
+<form method="POST" action="/user_create.html" modelAttribute="form"
+      th:attr="action=@{/user_create.html}">
 
     <div class="div">
-        <label th:path="id" th:for="id">ID</label>
-        <input th:path="id" th:id="id" th:name="id" />
-        
+        <label th:path="username" th:for="username">ID</label>
+        <input th:path="username" th:username="username" th:name="username" />
+
 
     </div>
     <div>
         <label th:path="password1" th:for="password1">PASS</label>
-        <input th:path="password1" th:id="password1" th:name="password1" />
+        <input th:path="password1" th:username="password1" th:name="password1" />
     </div>
     <div>
         <label th:path="password1" th:for="password1">REPEAT</label>
-        <input th:path="password2" th:id="password2" th:name="password2" />
+        <input th:path="password2" th:username="password2" th:name="password2" />
     </div>
     <div>
         <input type="submit" />

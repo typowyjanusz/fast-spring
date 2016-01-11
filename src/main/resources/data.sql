@@ -8,7 +8,20 @@ insert into content(object,subject) values('Litwo! Ojczyzno moja! ty jesteś jak
 insert into content(object,subject) values('Nie bój się kurwo, Ta noc już się rodzi, Nie bój się wódy, Ta nigdy nie zwodzi, Naparstek w naparstek, Kielichy jak dzwony','Odraza Wielki Mizogin');
 insert into content(object,subject) values('Za sny o pustce, Wysoka cena płacona, Bywa niczym, Kiedy zapłata, Nic nie warta.','Furia');
 
-INSERT INTO user (id, password) VALUES ('user1', 'pass1');
-INSERT INTO user (id, password) VALUES ('user2', 'pass1');
-INSERT INTO user (id, password) VALUES ('user3', 'pass1');
-INSERT INTO user (id, password) VALUES ('user4', 'pass1');
+INSERT INTO users(username,password,enabled)
+VALUES ('priya','priya',true);
+INSERT INTO users(username,password,enabled)
+VALUES ('naveen','naveen',true);
+INSERT INTO users(username,password,enabled)
+VALUES ('admin','admin'true);
+
+INSERT INTO user_roles (username, role)
+VALUES ('priya', 'ROLE_USER');
+INSERT INTO user_roles (username, role)
+VALUES ('admin', 'ROLE_ADMIN');
+INSERT INTO user_roles (username, role)
+VALUES ('admin', 'ROLE_USER');
+INSERT INTO user_roles (username, role)
+VALUES ('priya', 'ROLE_ADMIN');
+INSERT INTO user_roles (username, role)
+VALUES ('naveen', 'ROLE_USER');

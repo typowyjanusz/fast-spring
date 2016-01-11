@@ -4,10 +4,10 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-//import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-//import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
 
 
 
@@ -15,9 +15,9 @@ import org.springframework.context.annotation.Configuration;
  * Created by Janusz on 2016-01-03.
  */
 @Configuration
-//@EnableWebMvcSecurity
-public class SecurityConfig{ //extends WebSecurityConfigurerAdapter{
-/*
+@EnableWebMvcSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter{
+
     @Autowired
     DataSource dataSource;
 
@@ -25,7 +25,7 @@ public class SecurityConfig{ //extends WebSecurityConfigurerAdapter{
     public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception{
 
         auth.jdbcAuthentication().dataSource(dataSource)
-                .usersByUsernameQuery("select username, password, enabled from users where username=?")
+                .usersByUsernameQuery("select username, password from users where username=?")
                 .authoritiesByUsernameQuery("select username, role from user_roles where username=?");
 
     }
@@ -45,8 +45,8 @@ public class SecurityConfig{ //extends WebSecurityConfigurerAdapter{
                 .and()
         .exceptionHandling().accessDeniedPage("/403")
                 .and()
-        .csrf();
+                .csrf();
     }
-*/
+
 
 }

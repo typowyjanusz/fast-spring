@@ -1,7 +1,7 @@
 package service;
 
 
-import model.User;
+import model.Users;
 import org.slf4j.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,38 +14,39 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+
 /**
  * Created by Janusz on 2016-01-08.
  */
-@Service
-@Validated
+@Repository
 public class UserServiceImpl implements UserService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
-    private final UserRepository repository;
+    @Autowired
+    private SessionFactory sessionFactory;
 
-    @Inject
-    public UserServiceImpl(final UserRepository repository) {
-        this.repository = repository;
-    }
+    @SuppressWarnings("unchecked")
+    public Users findByUserName(String username) {
 
-    @Override
-    @Transactional
-    public User save(@NotNull @Valid final User user) {
-        LOGGER.debug("Creating {}", user);
-        User existing = repository.findOne(user.getId());
-        if (existing != null) {
-            throw new UserAlreadyExistsException(
-                    String.format("There already exists a user with id=%s", user.getId()));
+        List<Users> users = new ArrayList<Users>();
+
+        users = sessionFactory.getCurrentSession()
+                .createQuery("from Users where username=?")
+                .setParameter(0, username)
+                .list();
+
+        if (users.size() > 0) {
+            return users.get(0);
+        } else {
+            return null;
         }
-        return repository.save(user);
-    }
 
-    @Override
-    @Transactional(readOnly = true)
-    public List<User> getList() {
-        LOGGER.debug("Retrieving the list of all users");
-        return repository.findAll();
     }
 
 }

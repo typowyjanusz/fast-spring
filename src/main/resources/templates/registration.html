@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="pl">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, users-scalable=no"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
@@ -21,7 +21,7 @@
 
 <a href="index.jsp">Wróć do strony głównej</a>
 <h1>Rejestracja</h1>
-<form action="#" th:action="@{/registration}" th:object="${user}" method="post">
+<form action="#" th:action="@{/registration}" th:object="${users}" method="post">
     Login <input type="text" th:field="*{uname}" maxlength="20" required onclick="this.value=''"/><br/>
     Hasło <input type="password" th:field="*{upass}"  maxlength="20" required onclick="this.value=''"/><br/>
     Powtórz Hasło <input type="password" th:field="*{urepass}"  maxlength="20" required onclick="this.value=''"/><br/>

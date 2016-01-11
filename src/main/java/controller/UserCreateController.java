@@ -1,6 +1,6 @@
 package controller;
 
-import model.User;
+import model.Users;
 import model.UserCreateForm;
 import service.UserService;
 import service.exception.UserAlreadyExistsException;
@@ -47,7 +47,7 @@ public class UserCreateController {
         LOGGER.debug("Received request for user create view");
         return new ModelAndView("user_create", "form", new UserCreateForm());
     }
-
+/*
     @RequestMapping(value = "/user_create.html", method = RequestMethod.POST)
     public String createUser(@ModelAttribute("form") @Valid UserCreateForm form, BindingResult result) {
         LOGGER.debug("Received request to create {}, with result={}", form, result);
@@ -55,7 +55,7 @@ public class UserCreateController {
             return "user_create";
         }
         try {
-            userService.save(new User(form.getId(), form.getPassword2()));
+            userService.save(new Users(form.getUsername(), form.getPassword2());
         } catch (UserAlreadyExistsException e) {
             LOGGER.debug("Tried to create user with existing id", e);
             result.reject("user.error.exists");
@@ -63,5 +63,5 @@ public class UserCreateController {
         }
         return "redirect:/user_list.html";
     }
-
+*/
 }

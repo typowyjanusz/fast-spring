@@ -13,7 +13,7 @@ import javax.inject.Inject;
 
 @Controller
 public class UserListController {
-
+/*
     private final UserService userService;
 
     @Inject
@@ -27,5 +27,5 @@ public class UserListController {
         model.addAttribute("users",userService.getList());
         return new ModelAndView("user_list",model);
     }
-
+*/
 }

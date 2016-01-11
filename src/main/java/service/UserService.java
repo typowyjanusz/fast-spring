@@ -1,6 +1,6 @@
 package service;
 
-import model.User;
+import model.Users;
 
 import java.util.List;
 
@@ -9,8 +9,6 @@ import java.util.List;
  */
 public interface UserService {
 
-    User save(User user);
-
-    List<User> getList();
+    Users findByUserName(String username);
 
 }

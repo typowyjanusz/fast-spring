@@ -4,15 +4,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <body>
-<h1><spring:message code="user.list" /></h1>
+<h1><spring:message code="users.list" /></h1>
 <ul>
-    <c:forEach items="${users}" var="user">
+    <c:forEach items="${userses}" var="users">
         <li>
-            <c:out value="${user.getId()}" />
+            <c:out value="${users.getId()}" />
         </li>
     </c:forEach>
 </ul>
 
-<a href="<spring:url value="/user_create.html" />"><spring:message code="user.create" /></a>
+<a href="<spring:url value="/user_create.html" />"><spring:message code="users.create" /></a>
 </body>
 </html>

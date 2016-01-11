@@ -13,18 +13,18 @@ public class UserCreateForm {
 
     @NotEmpty
     @Size(max = 64)
-    private String id;
+    private String username;
     @NotEmpty
     @Size(max = 64)
     private String password1;
     private String password2;
 
-    public String getId() {
-        return id;
+    public String getUsername() {
+        return username;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword1() {
@@ -46,7 +46,7 @@ public class UserCreateForm {
     @Override
     public String toString() {
         return Objects.toStringHelper(this)
-                .add("id", id)
+                .add("username", username)
                 .add("password1", password1)
                 .add("password2", password2)
                 .toString();
