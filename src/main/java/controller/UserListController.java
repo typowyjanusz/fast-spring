@@ -21,7 +21,7 @@ public class UserListController {
         this.userService = userService;
     }
 
-    @RequestMapping("/index")
+    @RequestMapping("/")
     public ModelAndView getListUsersView(){
         ModelMap model = new ModelMap();
         model.addAttribute("contents",userService.getList());

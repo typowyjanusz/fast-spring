@@ -38,10 +38,4 @@ public class UserRestController {
         return userService.getList();
     }
 
-    @ExceptionHandler
-    @ResponseStatus(HttpStatus.CONFLICT)
-    public String handleUserAlreadyExistsException(UserAlreadyExistsException e) {
-        return e.getMessage();
-    }
-
 }

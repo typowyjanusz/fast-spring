@@ -1,6 +1,7 @@
 package service;
 
 import model.Content;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ public interface UserService {
 
     Content save(Content content);
 
-    List<Content> getList();
 
+   List<Content> getList();
+   //List<Content> findAllByOrderByIdDesc();
 }

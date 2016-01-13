@@ -1,9 +1,14 @@
 /*---------------------------------------------------------------------*/
 /*  COMMON
 /*---------------------------------------------------------------------*/
+#header {
+    height: 150px;
+    background-color: #0c2635;
+}
 
 body {
-    background-color: #476a84;
+    background: url(../images/bg-content.gif) repeat;
+    #background-color: #0c2635;
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     color: #2B2626;
@@ -32,6 +37,11 @@ body {
 /*---------------------------------------------------------------------*/
 /*  TIMELINE
 /*---------------------------------------------------------------------*/
+
+#content {
+
+    background-color: #476a84;
+}
 
 .panel-group.timeline {
     position: relative;
@@ -73,7 +83,7 @@ body {
     display: block;
     position: relative;
     width: 120px;
-    height: 40px;
+    height: 80px;
     margin-bottom: -20px;
     margin-right: auto;
     margin-left: auto;
@@ -144,7 +154,7 @@ body {
 .panel-group.timeline .timeline-item .panel {
     padding: 10px;
     width: 100%;
-    background: transparent;
+    background-color: #476a84;
     border: 1px solid #DCCECE;
     border-radius: 0px;
 }

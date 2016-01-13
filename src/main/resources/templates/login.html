@@ -15,25 +15,31 @@
     <link rel="stylesheet" href="css/app.css" th:src="@{../css/app.css}" media="screen" />
 
 
-    <title>index</title>
+    <title th:tiles:fragment="title">Messages : Create</title>
 </head>
 <body>
-<th:if test="${param.error ne null}">
-    <div>
-        Invalid username and contents.
-    </div>
-</th:if>
-<th:if test="${param.logout ne null}">
-    <div>
-        You have been logged out.
-    </div>
-</th:if>
-<form action="/login" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="contents" name="contents"/> </label></div>
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+
+<div th:tiles:fragment="content">
+    <form name="f" th:action="@{/login}" method="post">
+        <fieldset>
+            <legend>Please Login</legend>
+            <div th:if="${param.error}" class="alert alert-error">
+                Invalid username and password.
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success">
+                You have been logged out.
+            </div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username"/>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"/>
+            <div class="form-actions">
+                <button type="submit" class="btn">Log in</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
 <script src="js/jquery.min.js" th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
 <script src="js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.5/js/bootstrap.min.js}"></script>
 <script src="js/app.js" type="text/javascript" th:src="@{../js/app.js}"></script>

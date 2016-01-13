@@ -16,8 +16,13 @@ public class UserCreateForm {
     private Integer id;
 
     @NotEmpty
-    @Size(max = 64)
+    @Size(max = 1000)
     private String contents1;
+
+    @NotEmpty
+    @Size(max = 1000)
+    private String title;
+
 
 
     public Integer getId() {
@@ -32,6 +37,15 @@ public class UserCreateForm {
         return contents1;
     }
 
+    public String getTitle(){
+        return title;
+    }
+    public void setTitle(String title){
+        this.title = title;
+    }
+
+
+
     public void setContents1(String contents1) {
         this.contents1 = contents1;
     }
@@ -43,6 +57,7 @@ public class UserCreateForm {
         return Objects.toStringHelper(this)
                 .add("id", id)
                 .add("contents1", contents1)
+                .add("title",title)
                 .toString();
     }
 

@@ -19,18 +19,24 @@
 </head>
 <body>
 
-<form method="POST" action="/user_create.html" modelAttribute="form" th:attr="action=@{/user_create.html}">
+<form method="POST" th:modelAttribute="form" th:attr="action=@{../user_create}">
 
 
     <div>
-        <label th:path="contents1" th:for="contents1">PASS</label>
+        <label th:path="title" th:for="title">TYTUL</label>
+        <input th:path="title" th:id="title" th:name="title" />
+        <label th:path="contents1" th:for="contents1">TRESC</label>
         <input th:path="contents1" th:id="contents1" th:name="contents1" />
+        <input type="submit" />
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
     </div>
 
     <div>
         <input type="submit" />
     </div>
 </form>
+
+
 
 <script src="js/jquery.min.js" th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
 <script src="js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.5/js/bootstrap.min.js}"></script>

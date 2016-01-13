@@ -20,10 +20,10 @@
 <body>
 <h3>cześć </h3>
 <span th:text="${#httpServletRequest.remoteUser}"></span>
-<form action="/logout" method="post">
+<form th:action="@{/logout}" method="post">
     <input type="submit" value="logout" />
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 </form>
+
 
 <script src="js/jquery.min.js" th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
 <script src="js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.5/js/bootstrap.min.js}"></script>

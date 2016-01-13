@@ -19,11 +19,7 @@
 </head>
 <body>
 
-<a href="/logged">zaloguj ż ź ć ó ś ć</a>
-<span  th:text="*{content2}">...</span>
-
-<span th:text="${content2}"></span>
-
+<div id="header">
 <div class="container" >
     <!-- Static navbar -->
     <div class="navbar navbar-inverse" role="navigation">
@@ -39,31 +35,13 @@
             <div class="navbar-collapse collapse" style="height: 1px;">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#"><span class="glyphicon glyphicon-home"></span> Home</a></li>
-                    <li><a href="#">Features</a></li>
-                    <li><a href="">Pricing</a></li>
+                    <li><a href="/user_create">Create Post</a></li>
+                    <li><a href="">Create User</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">Latest Products</a></li>
-                            <li><a href="#">Popular Products</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Membership<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Personal Membership</a></li>
-                            <li><a href="#">Premium Membership</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Offers</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Dropdown <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Sample 1</a></li>
+                            <li><a href="#">Sample 2</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -71,29 +49,28 @@
         </div><!--/.container-fluid -->
     </div>
 </div> <!-- /container -->
+</div>
 
+<div id="content">
 <div class="container section-wrapper">
     <div class="section-content">
         <!-- EXPERIENCE START -->
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <h3 class="text-center text-yellow">
-                    MY WORK EXPERIENCE
+                    AKTUALNOŚCI
                 </h3>
                 <div class="panel-group timeline" id="experience" th:each="content : ${contents}">
                     <div class="timeline-item">
                         <div class="timeline-year">
-                            <span class="timeline-year">2014 - Now</span>
+                            <span class="timeline-year" th:text="${#dates.format(content.getCreated(),'dd-MM-yyyy HH:mm')}"  >data</span>
                         </div>
                         <!-- //.timeline-year -->
-                        <div class="timeline-btn">
-                            <a href="#exp1" data-toggle="collapse" data-parent="#experience"></a>
-                        </div>
                         <!-- //.timeline-btn -->
                         <div class="panel">
                             <div class="panel-heading">
                                 <div class="panel-title">
-                                    <h4 th:text="${content.getId()}">Endeca Developer - Comp Name - Location</h4>
+                                    <h4 th:text="${content.getTitle()}">Endeca Developer - Comp Name - Location</h4>
                                 </div>
                                 <!-- //.panel-title -->
                             </div>
@@ -120,7 +97,7 @@
     </div>
     <!-- //.section-content -->
 </div>
-
+</div>
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->

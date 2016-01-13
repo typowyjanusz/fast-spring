@@ -18,12 +18,21 @@
     <title>index</title>
 </head>
 <body>
+
+
+
 <h1>You do not have permission to access this page!
 </h1>
 <form action="/logout" method="post">
     <input type="submit" value="Sign in as different content" />
-    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" th:text="${#httpServletRequest.remoteUser}"/>
 </form>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+
+
+
 <script src="js/jquery.min.js" th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
 <script src="js/bootstrap.min.js" th:src="@{/webjars/bootstrap/3.3.5/js/bootstrap.min.js}"></script>
 <script src="js/app.js" type="text/javascript" th:src="@{../js/app.js}"></script>

@@ -20,6 +20,7 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 
@@ -38,7 +39,17 @@ public class PageController extends WebMvcConfigurerAdapter{
     @Autowired
     public GunwoRepository gunwoRepository;
 
-
+    @RequestMapping("/error.html")
+    public String error(HttpServletRequest request, Model model) {
+        model.addAttribute("errorCode", request.getAttribute("javax.servlet.error.status_code"));
+        Throwable throwable = (Throwable) request.getAttribute("javax.servlet.error.exception");
+        String errorMessage = null;
+        if (throwable != null) {
+            errorMessage = throwable.getMessage();
+        }
+        model.addAttribute("errorMessage", errorMessage);
+        return "error.html";
+    }
 
     @RequestMapping("/db")
     @ResponseBody
@@ -61,7 +72,7 @@ public class PageController extends WebMvcConfigurerAdapter{
     public String hello(){
         return "hello";
     }
-
+/*
     @RequestMapping(value = "/")
     public ModelAndView index(){
         ModelAndView modelAndView = new ModelAndView("index");
@@ -71,7 +82,7 @@ public class PageController extends WebMvcConfigurerAdapter{
 
         return modelAndView;
     }
-
+*/
     public String testMethod2() {
         StringBuilder response = new StringBuilder();
 /*

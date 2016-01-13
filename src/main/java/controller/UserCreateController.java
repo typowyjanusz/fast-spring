@@ -39,13 +39,14 @@ public class UserCreateController {
         binder.addValidators(passwordValidator);
     }
 */
-    @RequestMapping(value = "/user_create.html", method = RequestMethod.GET)
+
+    @RequestMapping(value = "/user_create", method = RequestMethod.GET)
     public ModelAndView getCreateUserView() {
         LOGGER.debug("Received request for user create view");
         return new ModelAndView("user_create", "form", new UserCreateForm());
     }
 
-    @RequestMapping(value = "/user_create.html", method = RequestMethod.POST)
+    @RequestMapping(value = "/user_create", method = RequestMethod.POST)
     public String createUser(@ModelAttribute("form") @Valid UserCreateForm form, BindingResult result) {
         LOGGER.debug("Received request to create {}, with result={}", form, result);
 
@@ -53,14 +54,14 @@ public class UserCreateController {
             return "user_create";
         }
         try {
-            userService.save(new Content(form.getId(), form.getContents1()));
+            userService.save(new Content(form.getId(), form.getContents1(), form.getTitle()));
         } catch (UserAlreadyExistsException e) {
             LOGGER.debug("Tried to create user with existing id", e);
             result.reject("user.error.exists");
             return "user_create";
         }
 
-        return "redirect:/user_list.html";
+        return "redirect:/";
     }
 
 }
